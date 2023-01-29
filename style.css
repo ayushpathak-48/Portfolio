@@ -210,9 +210,8 @@ img {
 }
 
 .hero-section {
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
-  background: var(--color-primary);
   margin-top: 4rem;
   display: flex;
   align-items: center;
@@ -227,9 +226,9 @@ img {
   position: absolute;
 }
 .section {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 10px;
-  padding-top: 80px;
+  padding: 40px 0;
   max-width: 1480px;
   margin: auto;
 }
@@ -240,7 +239,7 @@ img {
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-evenly;
   padding-top: 1rem;
 }
@@ -285,7 +284,7 @@ img {
   right: 0;
   left: 0;
   color: rgba(255, 255, 255, 0.7);
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 #language-name {
@@ -329,7 +328,9 @@ img {
   color: var(--color-primary);
   border-color: var(--color-primary);
 }
-
+.section:hover .section-heading {
+  box-shadow: 4px -2px 40px rgba(255, 255, 255, 0.2);
+}
 .theme-settings-panel {
   background: var(--color-bg);
   position: fixed;
@@ -376,14 +377,9 @@ img {
 }
 .about-section {
   padding: 10px;
-  padding-top: 65px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
-  height: 100vh;
 }
-.about-section:hover .about-heading {
-  box-shadow: 4px -2px 40px rgba(255, 255, 255, 0.2);
-}
+
 .about-section:hover .profile-img::before {
   transform: rotate(45deg);
 }
@@ -391,7 +387,7 @@ img {
   transform: rotate(0deg);
 }
 
-.about-heading {
+.section-heading {
   padding: 10px;
   border-radius: 10px;
   transition: all 0.3s ease;
@@ -498,7 +494,6 @@ img {
   margin: 10px;
   border-radius: 10px;
   overflow: hidden;
-  /* border: 2px solid rgba(255, 255, 255, 0.1); */
   transition: all 0.3s ease;
   padding-bottom: 1rem;
   position: relative;
@@ -506,25 +501,25 @@ img {
 
 .project-card-area {
   transition: all 0.3s ease;
-  /* scale: 0; */
 }
 
 .project-cards .card:hover {
   box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.1);
 }
-.project-cards .card img {
-  height: 180px;
-  object-fit: cover;
+.project-cards .card .project-card-header img {
+  height: 200px;
   border-radius: 10px;
+  object-fit: contain;
 }
+
 .card .tag {
   position: absolute;
   left: -4px;
   top: -4px;
-  z-index: 2;
   background: var(--color-primary);
   padding: 10px 15px;
-  border-bottom-right-radius: 50%;
+  border-bottom-right-radius: 20px;
+  z-index: 1;
 }
 .project-cards .card h2 {
   font-size: large;
@@ -556,14 +551,9 @@ img {
 
 .btn-main-outline {
   border: 2px solid var(--color-primary);
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: bold;
 }
-/* .btn-main-outline:hover {
-  border: 2px solid transparent;
-  color: var(--color-bg);
-  background-color: var(--color-primary);
-} */
 
 .btn:active {
   scale: 0.9;
@@ -804,4 +794,150 @@ img {
     opacity: 0;
     border-radius: 50%;
   }
+}
+
+/* Gradient Border Animation */
+.skill-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 1rem;
+}
+.skill-card {
+  height: 100px;
+}
+.skill-card:hover .skill-name {
+  transform: translate(-50%, 100%);
+}
+.skill-name {
+  text-align: center;
+  padding: 2px 10px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  color: var(--color-bg);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  transition: all 0.3s ease;
+}
+.skill-card-content {
+  height: 100%;
+  overflow: hidden;
+  border-radius: calc(1 * var(--borderWidth));
+  position: relative;
+  padding: 10px;
+}
+.gradient-border {
+  --borderWidth: 2px;
+  background: var(--color-primary);
+  position: relative;
+  border-radius: var(--borderWidth);
+  margin: 4px;
+  width: max-content;
+}
+.gradient-border:after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+  border-radius: calc(3 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.ticket-visual_visual {
+  width: 300px;
+  height: 200px;
+  margin: 20px auto;
+  position: relative;
+  transition: all 300ms cubic-bezier(0.03, 0.98, 0.53, 0.99) 0s;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.ticket-visual-wrapper {
+  overflow: hidden;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.language-list-area .project-language-img i {
+  font-size: 30px;
+  /* font-weight: bold; */
+  border-radius: 0;
+  padding: 2px;
+}
+.project-card-header {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  /* z-index: 1; */
+  background: rgba(255, 255, 255, 0.1);
+  object-fit: contain;
+}
+.language-list-area {
+  display: flex;
+  position: absolute;
+  height: 40px;
+  bottom: -40px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+.project-cards .card:hover .language-list-area {
+  bottom: 0;
+}
+.orange {
+  color: rgb(248, 131, 7);
+}
+.blue {
+  color: blue;
+}
+.bg-yellow {
+  color: rgb(255, 242, 0);
+}
+.lightblue {
+  color: #2fbfff;
 }

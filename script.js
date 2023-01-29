@@ -13,22 +13,29 @@ const projectArr = [
     demoLink: "#",
     sourceLink: "#",
     category: ["html", "css", "JavaScript"],
+    languageListImg: [
+      "fa-html5 orange",
+      "fa-square-js bg-yellow",
+      "fa-css3-alt lightblue",
+    ],
   },
   {
     id: 2,
     title: "YouTube Clone",
-    img: "assets/project-img.png",
+    img: "assets/css.png",
     demoLink: "#",
     sourceLink: "#",
     category: ["React js"],
+    languageListImg: ["fa-react lightblue"],
   },
   {
     id: 3,
     title: "Tesla Clone",
-    img: "assets/project-img.png",
+    img: "assets/react.png",
     demoLink: "#",
     sourceLink: "#",
     category: ["html", "css"],
+    languageListImg: ["fa-html5 orange", "fa-css3-alt lightblue"],
   },
   {
     id: 4,
@@ -37,6 +44,7 @@ const projectArr = [
     demoLink: "#",
     sourceLink: "#",
     category: ["Tailwind Css"],
+    languageListImg: [""],
   },
   {
     id: 5,
@@ -45,14 +53,24 @@ const projectArr = [
     demoLink: "#",
     sourceLink: "#",
     category: ["html", "css", "JavaScript"],
+    languageListImg: [
+      "fa-html5 orange",
+      "fa-square-js bg-yellow",
+      "fa-css3-alt lightblue",
+    ],
   },
   {
     id: 6,
     title: "Responsive Template",
-    img: "assets/project-img.png",
+    img: "assets/html.png",
     demoLink: "#",
     sourceLink: "#",
     category: ["Bootstrap", "html", "JavaScript"],
+    languageListImg: [
+      "fa-html5 orange",
+      "fa-square-js bg-yellow",
+      "bootstrap purple",
+    ],
   },
   {
     id: 7,
@@ -61,6 +79,11 @@ const projectArr = [
     demoLink: "#",
     sourceLink: "#",
     category: ["html", "css", "JavaScript"],
+    languageListImg: [
+      "fa-html5 orange",
+      "fa-square-js bg-yellow",
+      "fa-css3-alt lightblue",
+    ],
   },
   {
     id: 7,
@@ -69,6 +92,7 @@ const projectArr = [
     demoLink: "#",
     sourceLink: "#",
     category: ["html", "css"],
+    languageListImg: ["fa-html5 orange", "fa-css3-alt lightblue"],
   },
 ];
 
@@ -132,26 +156,50 @@ function setProjectCategory(cat) {
   setTimeout(() => {
     projectCard.innerHTML = "";
     projectArr.forEach((arr) => {
+      let languageList = "";
+      arr.languageListImg.forEach((element) => {
+        if (element != "") {
+          languageList += `
+            <div class="project-language-img">
+              <i class="fa-brands ${element}"></i>
+            </div>
+            `;
+        } else {
+          languageList = arr.category[0];
+        }
+      });
       if (cat === "all") {
         projectCard.innerHTML += `<div class="card project-card-area">
           <div class="tag">${arr.category[0]}</div>
-          <img src="${arr.img}" alt="" />
+         <div class='project-card-header'>
+            <img src="${arr.img}" alt="" />
+            <div class="language-list-area">
+            ${languageList}
+            </div>
+         </div>
           <h2>${arr.title}</h2>
           <p>This Project is Made By HTML CSS & JavaScript</p>
           <div class="card-footer">
             <a href="${arr.demoLink}"><div class="btn btn-main">Demo</div></a>
-            <a href="${arr.sourceLink}"><div class="btn btn-main-outline">Source</div></a>
+            <a href="${arr.sourceLink}"><div class="btn btn-main-outline">GitHub</div></a>
+            
           </div>
         </div>`;
       } else if (arr.category.includes(cat)) {
-        projectCard.innerHTML += `<div class="card project-card-area">
+        projectCard.innerHTML += `
+        <div class="card project-card-area">
           <div class="tag">${cat}</div>
-          <img src="${arr.img}" alt="" />
+         <div class='project-card-header'>
+            <img src="${arr.img}" alt="" />
+            <div class="language-list-area">
+            ${languageList}
+            </div>
+         </div>
           <h2>${arr.title}</h2>
           <p>This Project is Made By HTML CSS & JavaScript</p>
           <div class="card-footer">
             <a href="${arr.demoLink}"><div class="btn btn-main">Demo</div></a>
-            <a href="${arr.sourceLink}"><div class="btn btn-main-outline">Source</div></a>
+            <a href="${arr.sourceLink}"><div class="btn btn-main-outline">GitHub</div></a>
           </div>
         </div>`;
       }
@@ -163,3 +211,20 @@ function setProjectCategory(cat) {
     setTimeout(() => {}, 100);
   }, 300);
 }
+
+// Card Hover Move Effect
+const ticketElm = document.getElementById("ticket");
+ticketElm.addEventListener("mouseover", (e) => {
+  const { x, y, width, height } = ticketElm.getBoundingClientRect();
+  console.log(ticketElm.getBoundingClientRect());
+  const centerPoint = { x: x + width / 2, y: y + height / 2 };
+  ticketElm.addEventListener("mousemove", (e) => {
+    const degreeX = (e.clientY - centerPoint.y) * 0.1;
+    const degreeY = (e.clientX - centerPoint.x) * -0.1;
+
+    ticketElm.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
+  });
+  ticketElm.addEventListener("mouseout", (e) => {
+    ticketElm.style.transform = `none`;
+  });
+});
