@@ -227,12 +227,12 @@ img {
   position: absolute;
 }
 .section {
-  min-height: 100vh;
-  max-height:700px;
-  padding: 10px;
-  padding: 40px 0;
-  max-width: 1480px;
-  margin: auto;
+     height: 100vh;
+    max-height: 700px;
+    /* padding: 10px; */
+    padding: 0px 0;
+    max-width: 1480px;
+    margin: auto;
 }
 
 .hero-section .main-section {
