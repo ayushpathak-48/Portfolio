@@ -476,10 +476,14 @@ img {
 }
 
 .projects-section {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
+      display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    max-height: max-content;
+    margin: 0 auto;
+    padding: 0;
+    height: max-content;
 }
 .project-cards {
   display: flex;
