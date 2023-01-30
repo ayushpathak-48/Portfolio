@@ -1,6 +1,6 @@
 const languageNameArea = document.getElementById("language-name");
 const colorBoxes = document.querySelectorAll(".color-box");
-const languageArr = ["React Js", "Front-End", "Backend", "MERN Stack", "PHP"];
+const languageArr = ["React Js Developer", "Front-End Developer", "Web Developer"];
 const themePanel = document.getElementById("theme-panel");
 const tabs = document.querySelectorAll(".tab");
 const projectCard = document.getElementById("project-cards");
