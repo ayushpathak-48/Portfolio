@@ -237,7 +237,6 @@ img {
 
 .hero-section .main-section {
   color: var(--color-bg);
-  backdrop-filter: blur(5px);
   height: 100%;
   width: 100%;
   display: flex;
@@ -266,11 +265,11 @@ img {
 
 .main-section h3:first-child {
   color: var(--color-secondary-variant);
-  font-size: 1.4em;
+  font-size: 1.4rem;
 }
 
 .main-section h2 span {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   color: var(--color-secondary);
 }
 .main-section img {
@@ -308,7 +307,6 @@ img {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  text-align: center;
 }
 .btn {
   padding: 10px 20px;
