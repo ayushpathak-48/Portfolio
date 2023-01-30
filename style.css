@@ -274,8 +274,9 @@ img {
   color: var(--color-secondary);
 }
 .main-section img {
-  height: 20rem;
-  width: 20rem;
+  height: 25rem;
+  width: 25rem;
+  margin-top:2rem;
   animation: bounce infinite 1s alternate;
 }
 .main-heading {
