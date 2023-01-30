@@ -164,7 +164,6 @@ img {
   justify-content: space-between;
   background-color: var(--color-primary);
   color: var(--color-bg);
-  height: 4rem;
   padding: 0 20px;
   font-weight: 600;
   border-bottom: solid 1px rgba(255, 255, 255, 0.2);
@@ -265,11 +264,10 @@ img {
 
 .main-section h3:first-child {
   color: var(--color-secondary-variant);
-  font-size: 1.4rem;
+
 }
 
 .main-section h2 span {
-  font-size: 1.2rem;
   color: var(--color-secondary);
 }
 .main-section img {
@@ -285,7 +283,6 @@ img {
   right: 0;
   left: 0;
   color: rgba(255, 255, 255, 0.7);
-  /* z-index: 1; */
 }
 
 #language-name {
@@ -293,9 +290,8 @@ img {
   position: absolute;
   left: 60px;
   color: var(--color-secondary-variant);
-  font-size: 1.1em;
+  
   text-align: center;
-  width: 120px;
 }
 .section-2 {
   position: relative;
