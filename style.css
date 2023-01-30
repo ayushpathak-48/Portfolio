@@ -173,6 +173,7 @@ img {
   right: 0;
   left: 0;
   z-index: 10;
+  height:4rem;
 }
 .navbar ul {
   display: flex;
