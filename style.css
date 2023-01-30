@@ -242,6 +242,7 @@ img {
   align-items: center;
   justify-content: space-evenly;
   padding-top: 1rem;
+  font-size:30px;
 }
 .circle {
   height: 10rem;
