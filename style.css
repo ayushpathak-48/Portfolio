@@ -11,6 +11,7 @@
   color: var(--color-bg);
 }
 
+
 :root {
   --color-primary: #202c39;
   --color-primary:#202327;
@@ -287,12 +288,12 @@ img {
 }
 
 #language-name {
+   
   transition: all 0.3s ease;
   position: absolute;
-  left: 60px;
+  left: 110px;
   color: var(--color-secondary-variant);
-  
-  text-align: center;
+  width: 100%;
 }
 .section-2 {
   position: relative;
